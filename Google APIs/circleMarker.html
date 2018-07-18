@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Info windows</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
+
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+
+        var locations = [
+            ['Coimbatore', 11.0, 76.9, 2],
+            ['Kochi', 9.9, 76.2, 3],
+            ['Delhi', 28.7, 77.157507, 5],
+            ['Mumbai', 19.07, 72.877, 4],
+        ];
+
+
+        // When the user clicks the marker, an info window opens.
+
+        function initMap() {
+            var myLatLng = { lat: 19, lng: 72 };
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 5,
+                center: myLatLng
+            });
+
+            var count = 0;
+
+
+            for (count = 0; count < locations.length; count++) {
+
+                var marker = new google.maps.Circle({
+                    center: new google.maps.LatLng(locations[count][1], locations[count][2]),
+                    radius: locations[count][3]*5000,
+                    strokeColor: "#FF00FF",
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: "#FF00FF",
+                    fillOpacity: 0.4,
+                    map: map
+                });
+                var name = locations[count][0];
+                plot(map, marker, name);
+
+
+            }
+
+        }
+        function plot(map, marker, name) {
+            var info = new google.maps.InfoWindow({
+                content: name
+            });
+
+
+            google.maps.event.addListener(marker, 'click', function () {
+                // this = marker
+                info.setPosition(marker.center);
+                info.open(map);
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_HjrSs1RLOiyAiUXq5erxEUyNFm7SOOM&callback=initMap">
+    </script>
+</body>
+
+</html>
