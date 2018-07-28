@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['timeline']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var container = document.getElementById('timeline');
+        var chart = new google.visualization.Timeline(container);
+        var dataTable = new google.visualization.DataTable();
+
+        dataTable.addColumn({ type: 'string', id: 'President' });
+        dataTable.addColumn({ type: 'date', id: 'Start' });
+        dataTable.addColumn({ type: 'date', id: 'End' });
+        dataTable.addRows([
+                ['Understand the various Big Geo-Spatial Data resources', new Date(2000, 0, 1), new Date(2000, 3, 31)],
+                ['Understand the different data schema from Geo Spatial Data resources', new Date(2000, 0, 1), new Date(2000, 3, 31)],
+                ['Build an Cloud Environemnt with Hadoop Eco System', new Date(2000, 3, 1), new Date(2000, 11, 31)],
+                ['Consturct a data in the form of GeoJSON', new Date(2000, 9, 15), new Date(2001, 3, 31)],
+                ['Build a Geo Spatial Data with generic format', new Date(2001, 0, 15), new Date(2001, 5, 31)],
+                ['System Testing', new Date(2001, 2, 15), new Date(2001, 11, 31)],
+                ['Data analysis and report writing', new Date(2001, 6, 1), new Date(2001, 11, 31)]
+            ]);
+        chart.draw(dataTable);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="timeline" style="height: 100%;"></div>
+  </body>
+</html>

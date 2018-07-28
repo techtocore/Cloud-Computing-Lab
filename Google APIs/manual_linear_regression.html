@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+
+        function linearRegression(y, x) {
+            var lr = {};
+            var n = y.length;
+            var sum_x = 0;
+            var sum_y = 0;
+            var sum_xy = 0;
+            var sum_xx = 0;
+            var sum_yy = 0;
+
+            for (var i = 0; i < y.length; i++) {
+
+                sum_x += x[i];
+                sum_y += y[i];
+                sum_xy += (x[i] * y[i]);
+                sum_xx += (x[i] * x[i]);
+                sum_yy += (y[i] * y[i]);
+            }
+
+            lr['slope'] = (n * sum_xy - sum_x * sum_y) / (n * sum_xx - sum_x * sum_x);
+            lr['intercept'] = (sum_y - lr.slope * sum_x) / n;
+            lr['r2'] = Math.pow((n * sum_xy - sum_x * sum_y) / Math.sqrt((n * sum_xx - sum_x * sum_x) * (n * sum_yy - sum_y * sum_y)), 2);
+
+            return lr;
+        }
+
+        google.charts.load('current', { 'packages': ['corechart'] });
+        //google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var x = [];
+            var y = [];
+            var tmp = document.getElementById("txt1").value;
+            x.push(tmp);
+
+            var tmp = document.getElementById("txt2").value;
+            y.push(tmp);
+
+            var tmp = document.getElementById("txt3").value;
+            x.push(tmp);
+            var tmp = document.getElementById("txt4").value;
+            y.push(tmp);
+
+            var tmp = document.getElementById("txt5").value;
+            x.push(tmp);
+            var tmp = document.getElementById("txt6").value;
+            y.push(tmp);
+
+            var tmp = document.getElementById("txt7").value;
+            x.push(tmp);
+            var tmp = document.getElementById("txt8").value;
+            y.push(tmp);
+
+
+            var lr = linearRegression(y, x);
+
+            var xs = x;
+            //xs.sort();
+
+            var ys = lr.slope;
+            var yi = lr.intercept;
+
+            var mydata = [
+                ['Year', 'Rate', 'LR Rate']
+            ];
+
+            for (var i = 0; i < 4; i++) {
+                var a1 = xs[i];
+                var b1 = ys * a1 + yi;
+                mydata.push([parseInt(parseFloat(a1).toFixed(2)), parseInt(parseFloat(y[i]).toFixed(2)), b1]);
+            }
+
+            console.log(mydata);
+
+
+            var data = google.visualization.arrayToDataTable(mydata);
+
+            var options = {
+                title: 'House Rent',
+                // curveType: 'line',
+                legend: { position: 'bottom' },
+                seriesType: 'scatter',
+                series: { 1: { type: 'line' } }
+
+            };
+
+
+            var dpt = [
+                ['Year', 'Rate']
+            ];
+
+
+            for (var i = 0; i < x.length; i++) {
+                dpt.push([x[i], y[i]]);
+            }
+
+            var datapt = google.visualization.arrayToDataTable(dpt);
+
+
+
+            var chart = new google.visualization.ComboChart(document.getElementById('curve_chart'));
+            chart.draw(data, options);
+            // chart.draw(datapt, options1);
+        }
+
+        function find() {
+            var x = [];
+            var y = [];
+            var tmp = document.getElementById("txt1").value;
+            x.push(tmp);
+
+            var tmp = document.getElementById("txt2").value;
+            y.push(tmp);
+
+            var tmp = document.getElementById("txt3").value;
+            x.push(tmp);
+            var tmp = document.getElementById("txt4").value;
+            y.push(tmp);
+
+            var tmp = document.getElementById("txt5").value;
+            x.push(tmp);
+            var tmp = document.getElementById("txt6").value;
+            y.push(tmp);
+
+            var tmp = document.getElementById("txt7").value;
+            x.push(tmp);
+            var tmp = document.getElementById("txt8").value;
+            y.push(tmp);
+
+            var ip = document.getElementById("ip1").value;
+
+            var lr = linearRegression(y, x);
+
+            alert(lr.slope * ip + lr.intercept);
+
+        }
+
+    </script>
+
+
+    <h1>user input</h1>
+    <form name="form1">
+        <input type="text" name="txt1" id="txt1" value="" />
+        <input type="text" name="txt2" id="txt2" value="" />
+        <br>
+        <br>
+        <input type="text" name="txt3" id="txt3" value="" />
+        <input type="text" id="txt4" name="txt4" value="" />
+        <br>
+        <br>
+        <input type="text" name="txt5" id="txt5" value="" />
+        <input type="text" id="txt6" name="txt6" value="" />
+        <br>
+        <br>
+        <input type="text" name="txt7" id="txt7" value="" />
+        <input type="text" id="txt8" name="txt8" value="" />
+        <br>
+        <br>
+        <input type="button" name="submit" value="submit" onclick="drawChart()">
+    </form>
+
+
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+
+    <br>
+
+    <input type="text" id="ip1" placeholder="input x value" />
+    <input type="button" value="predict" onclick="find()">
+
+</body>
+
+</html>
