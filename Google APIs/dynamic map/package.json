@@ -1,0 +1,11 @@
+{
+  "name": "dynamic-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "p1eval.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Akash Ravi\\",
+  "license": "ISC"
+}
