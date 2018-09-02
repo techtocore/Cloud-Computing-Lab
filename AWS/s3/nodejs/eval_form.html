@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <br/>
+    <h2>Students details:</h2>
+    <br/> Name:
+    <br/> <input type="text" required="true" id="name" />
+    <br/> Reg no:
+    <br/> <input type="text" required="true" id="reg" />
+    <br/>
+    <h2>GPA obtained:</h2>
+    <br/>
+    <table>
+        <tr>
+            <td>Subject </td>
+            <td>Credits </td>
+            <td>Grade </td>
+        </tr>
+        <tr>
+            <td> <input type="text" /> </td>
+            <td><input type="number" id="c1" /> </td>
+            <td><input type="text" id="g1" /> </td>
+        </tr>
+        <tr>
+            <td> <input type="text" /> </td>
+            <td><input type="number" id="c2" /> </td>
+            <td><input type="text" id="g2" /> </td>
+        </tr>
+        <tr>
+            <td> <input type="text" /> </td>
+            <td><input type="number" id="c3" /> </td>
+            <td><input type="text" id="g3" /> </td>
+        </tr>
+        <tr>
+            <td> <input type="text" /> </td>
+            <td><input type="number" id="c4" /> </td>
+            <td><input type="text" id="g4" /> </td>
+        </tr>
+    </table>
+
+    <br/>
+    <button onclick="send()">Submit</button>
+
+</body>
+
+<script>
+    function send() {
+        //console.log(keys);
+        var json1 = {};
+        json1.name = document.getElementById("name").value;
+        json1.regno = document.getElementById("reg").value;
+        json1.c1 = document.getElementById("c1").value;
+        json1.c2 = document.getElementById("c2").value;
+        json1.c3 = document.getElementById("c3").value;
+        json1.g3 = document.getElementById("g3").value;
+        json1.g1 = document.getElementById("g1").value;
+        json1.g2 = document.getElementById("g2").value;
+
+        var jsonStr = JSON.stringify(json1);
+        console.log(jsonStr);
+
+        //TODO: check endpoint URL
+        $.post("http://localhost:3000/adds3", json1, function (result) {
+            console.log("submitted sucessfully");
+            alert(result.status);
+            location.reload(true);
+            //TODO: print response status
+
+        });
+    }
+</script>
+
+</html>

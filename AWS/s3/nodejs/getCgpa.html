@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <h2>
+        Enter the reg no:
+    </h2>
+    <input type="text" id="reg" />
+    <button onclick="getcg()">Submit</button>
+
+    <br/>
+    <br/>
+    Name: <input type="text" readonly="true" id="nam" />
+    <br/>
+    <br/> The CGPA is <input type="text" readonly="true" id="val" />
+
+</body>
+
+<script>
+
+    function getcg() {
+
+        var gg = document.getElementById("reg").value;
+
+        var json1 = {};
+        json1.reg = gg;
+        var jsonStr = JSON.stringify(json1);
+        console.log(jsonStr);
+
+        //TODO: check endpoint URL
+        $.post("http://localhost:3000/gets3", json1, function (result) {
+            console.log("got sucessfully");
+            document.getElementById("val").value = result.cg;
+            document.getElementById("nam").value = result.name;
+
+            //TODO: print response status
+
+        });
+    }
+
+</script>
+
+</html>
