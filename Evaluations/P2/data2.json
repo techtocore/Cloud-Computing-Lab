@@ -1,0 +1,78 @@
+[
+    {
+      "Sport": "Athletics",
+      "Second": 10
+    },
+    {
+      "Sport": "Shooting",
+      "Second": 4
+    },
+    {
+      "Sport": "Wrestling",
+      "Second": 0
+    },
+    {
+      "Sport": "Bridge",
+      "Second": 0
+    },
+    {
+      "Sport": "Lawn tennis",
+      "Second": 0
+    },
+    {
+      "Sport": "Rowing",
+      "Second": 0
+    },
+    {
+      "Sport": "Boxing",
+      "Second": 0
+    },
+    {
+      "Sport": "Archery",
+      "Second": 2
+    },
+    {
+      "Sport": "Equestrian",
+      "Second": 2
+    },
+    {
+      "Sport": "Squash",
+      "Second": 1
+    },
+    {
+      "Sport": "Sailing",
+      "Second": 1
+    },
+    {
+      "Sport": "Badminton",
+      "Second": 1
+    },
+    {
+      "Sport": "Field hockey",
+      "Second": 1
+    },
+    {
+      "Sport": "Kabaddi",
+      "Second": 1
+    },
+    {
+      "Sport": "Kurash",
+      "Second": 1
+    },
+    {
+      "Sport": "Wushu",
+      "Second": 0
+    },
+    {
+      "Sport": "Table tennis",
+      "Second": 0
+    },
+    {
+      "Sport": "Sepak takraw",
+      "Second": 0
+    },
+    {
+      "Sport": "Total",
+      "Second": 24
+    }
+  ]

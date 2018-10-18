@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>View medals</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <h1>View Medals by sport</h1>
+    <hr>
+
+    <h3>
+        Filter category wise:
+    </h3>
+    <br>
+    <select id="list1">
+        <option id='Athletics'>Athletics</option>
+        <option id='Shooting'>Shooting</option>
+        <option id='Wrestling'>Wrestling</option>
+        <option id='Bridge'>Bridge</option>
+        <option id='Lawn tennis'>Lawn tennis</option>
+        <option id='Rowing'>Rowing</option>
+        <option id='Boxing'>Boxing</option>
+        <option id='Archery'>Archery</option>
+        <option id='Equestrian'>Equestrian</option>
+        <option id='Squash'>Squash</option>
+        <option id='Sailing'>Sailing</option>
+        <option id='Badminton'>Badminton</option>
+        <option id='Field hockey'>Field hockey</option>
+        <option id='Kabaddi'>Kabaddi</option>
+        <option id='Kurash'>Kurash</option>
+        <option id='Wushu'>Wushu</option>
+        <option id='Table tennis'>Table tennis</option>
+        <option id='Sepak takraw'>Sepak takraw</option>
+    </select>
+
+    &emsp; &emsp;
+    <button onclick="findBySport()"> Get Stats </button>
+    <br>
+    <br>
+    No of Gold medals: <input type="text" readonly="true" id="m1" />
+    <br>
+    No of Silver medals: <input type="text" readonly="true" id="m2" />
+    <br>
+    No of Bronze medals: <input type="text" readonly="true" id="m3" />
+    <br>
+    Total No of medals: <input type="text" readonly="true" id="m4" />
+    <br>
+
+    <br>
+    <hr>
+
+    <h3>
+        Medal wise Results:
+    </h3>
+    <br>
+    <select id="list2">
+        <option id='first'>Gold</option>
+        <option id='Second'>Silver</option>
+        <option id='Third'>Bronze</option>
+        <option id='Total'>Total</option>
+    </select>
+
+
+    &emsp; &emsp;
+    <button onclick="findByMedal()"> Get Stats </button>
+    <br>
+    <br>
+    List of sports: <input type="text" readonly="true" id="m11" style="width: 800px;"/>
+
+
+</body>
+
+
+<script>
+
+
+
+    function findBySport() {
+
+        var e = document.getElementById("list1");
+        var sport = e.options[e.selectedIndex].id;
+        //console.log(sport);
+
+        var json1 = {};
+        json1.sport = sport;
+        var jsonStr = JSON.stringify(json1);
+        console.log(jsonStr);
+
+        //TODO: check endpoint URL
+        $.post("http://localhost:3000/gets3", json1, function (result) {
+            console.log("got sucessfully");
+            document.getElementById("m1").value = result.g;
+            document.getElementById("m2").value = result.s;
+            document.getElementById("m3").value = result.b;
+            document.getElementById("m4").value = result.t;
+
+            //TODO: print response status
+
+        });
+
+    }
+
+    function findByMedal() {
+
+        var e = document.getElementById("list2");
+        var med = e.options[e.selectedIndex].id;
+        //console.log(sport);
+
+        var json1 = {};
+        json1.med = med;
+        var jsonStr = JSON.stringify(json1);
+        console.log(jsonStr);
+
+        //TODO: check endpoint URL
+        $.post("http://localhost:3000/gets31", json1, function (result) {
+            console.log("got sucessfully");
+            document.getElementById("m11").value = result.str;
+
+            //TODO: print response status
+
+        });
+
+    }
+</script>
+
+</html>

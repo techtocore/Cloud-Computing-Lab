@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Document</title>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<script>
+
+    var ct = [];
+    var val = [];
+
+</script>
+
+
+<script>
+
+    $(document).ready(function () {
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:3000/getval",
+            "method": "GET",
+            "headers": {
+                "Cache-Control": "no-cache"
+            }
+        }
+
+        $.ajax(settings).done(function (response) {
+            // console.log(response);
+            ct = response.ct;
+            val = response.val;
+            //console.log(ct);
+
+            /////////////////////////
+
+            google.charts.load('current', {
+                'packages': ['geochart'],
+                'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+            });
+            google.charts.setOnLoadCallback(drawRegionsMap);
+
+            function drawRegionsMap() {
+                console.log(ct);
+
+                var rawdata = [];
+                rawdata.push(['Country', 'Popularity']);
+
+                var len = ct.length;
+
+                for (var i = 0; i < len; i++) {
+                    var tpp = [];
+                    tpp.push(ct[i]);
+                    tpp.push(parseInt(val[i]));
+                    rawdata.push(tpp);
+                }
+
+                var data = google.visualization.arrayToDataTable(rawdata);
+
+                var options = {};
+
+                var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+                chart.draw(data, options);
+            }
+
+            /////////////////////////
+
+
+        });
+
+    });
+
+</script>
+
+<script type="text/javascript">
+
+
+
+</script>
+
+<body>
+    <div id="regions_div" style="width: 900px; height: 500px;"></div>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+[
+  {
+    "Sport": "Athletics",
+    "first": 7,
+    "Second": 10,
+    "Third": 2,
+    "Total": 19
+  },
+  {
+    "Sport": "Shooting",
+    "first": 2,
+    "Second": 4,
+    "Third": 3,
+    "Total": 9
+  },
+  {
+    "Sport": "Wrestling",
+    "first": 2,
+    "Second": 0,
+    "Third": 1,
+    "Total": 3
+  },
+  {
+    "Sport": "Bridge",
+    "first": 1,
+    "Second": 0,
+    "Third": 2,
+    "Total": 3
+  },
+  {
+    "Sport": "Lawn tennis",
+    "first": 1,
+    "Second": 0,
+    "Third": 2,
+    "Total": 3
+  },
+  {
+    "Sport": "Rowing",
+    "first": 1,
+    "Second": 0,
+    "Third": 2,
+    "Total": 3
+  },
+  {
+    "Sport": "Boxing",
+    "first": 1,
+    "Second": 0,
+    "Third": 1,
+    "Total": 2
+  },
+  {
+    "Sport": "Archery",
+    "first": 0,
+    "Second": 2,
+    "Third": 0,
+    "Total": 2
+  },
+  {
+    "Sport": "Equestrian",
+    "first": 0,
+    "Second": 2,
+    "Third": 0,
+    "Total": 2
+  },
+  {
+    "Sport": "Squash",
+    "first": 0,
+    "Second": 1,
+    "Third": 4,
+    "Total": 5
+  },
+  {
+    "Sport": "Sailing",
+    "first": 0,
+    "Second": 1,
+    "Third": 2,
+    "Total": 3
+  },
+  {
+    "Sport": "Badminton",
+    "first": 0,
+    "Second": 1,
+    "Third": 1,
+    "Total": 2
+  },
+  {
+    "Sport": "Field hockey",
+    "first": 0,
+    "Second": 1,
+    "Third": 1,
+    "Total": 2
+  },
+  {
+    "Sport": "Kabaddi",
+    "first": 0,
+    "Second": 1,
+    "Third": 1,
+    "Total": 2
+  },
+  {
+    "Sport": "Kurash",
+    "first": 0,
+    "Second": 1,
+    "Third": 1,
+    "Total": 2
+  },
+  {
+    "Sport": "Wushu",
+    "first": 0,
+    "Second": 0,
+    "Third": 4,
+    "Total": 4
+  },
+  {
+    "Sport": "Table tennis",
+    "first": 0,
+    "Second": 0,
+    "Third": 2,
+    "Total": 2
+  },
+  {
+    "Sport": "Sepak takraw",
+    "first": 0,
+    "Second": 0,
+    "Third": 1,
+    "Total": 1
+  },
+  {
+    "Sport": "Total",
+    "first": 15,
+    "Second": 24,
+    "Third": 30,
+    "Total": 69
+  }
+]
