@@ -1,0 +1,25 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.342.0",
+    "axios": "^0.18.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "json": "^9.0.6",
+    "mongodb": "^3.1.8",
+    "nodemailer": "^4.6.8",
+    "path": "^0.12.7",
+    "requests": "^0.2.2",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
